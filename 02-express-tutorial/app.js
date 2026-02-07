@@ -1,13 +1,26 @@
-const { readFile, writeFile } = require('fs')
+<<<<<<< HEAD
+const express = require("express");
+const app = express();
 
-console.log('started a first task')
-// CHECK FILE PATH!!!!
-readFile('./content/first.txt', 'utf8', (err, result) => {
-  if (err) {
-    console.log(err)
-    return
-  }
-  console.log(result)
-  console.log('completed first task')
-})
-console.log('starting next task')
+const people = require("./routes/people");
+const auth = require("./routes/auth");
+//static assets
+app.use(express.static("./methods-public"));
+//parse form data
+app.use(express.urlencoded({ extended: false }));
+//parse json
+app.use(express.json());
+
+app.use("/api/people", people);
+
+app.use("/login", auth);
+
+app.listen(5000, () => {
+  console.log("Server is listening on port 5000...");
+});
+=======
+
+
+console.log('Welcome to Linux')
+
+>>>>>>> 2d9514c211f70cd980bea29c03598c608f633f13
